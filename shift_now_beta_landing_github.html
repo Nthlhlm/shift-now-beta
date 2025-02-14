@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIFT NOW Beta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2D2D2D;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #FFAA00;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input, button {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        input {
+            background: white;
+            color: black;
+        }
+        button {
+            background-color: #FFAA00;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #FF8800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SHIFT NOW Beta</h1>
+        <p>Sei einer der ersten 500 Nutzer und sichere dir den exklusiven Founding-Member-Status!</p>
+        <p>Trage deine E-Mail ein, um Zugang zur Beta zu erhalten:</p>
+        <input type="email" id="email" placeholder="Deine E-Mail-Adresse" />
+        <button onclick="joinBeta()">Jetzt beitreten</button>
+        <p id="confirmation" style="margin-top: 20px; font-weight: bold;"></p>
+    </div>
+
+    <script>
+        async function joinBeta() {
+            let email = document.getElementById("email").value;
+            if (!email) {
+                document.getElementById("confirmation").innerText = "Bitte eine gültige E-Mail eingeben.";
+                return;
+            }
+
+            let data = {
+                email: email,
+                attributes: {
+                    FIRSTNAME: "SHIFT NOW Beta-Tester"
+                },
+                listIds: [1] // Falls notwendig, passe diese ID an!
+            };
+
+            let response = await fetch("https://api.brevo.com/v3/contacts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json",
+                    "api-key": "DEIN_API_SCHLÜSSEL_HIER" // Ersetze hier deinen API-Schlüssel!
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                document.getElementById("confirmation").innerText = "Danke! Deine Einladung zur Beta wurde gesichert.";
+            } else {
+                document.getElementById("confirmation").innerText = "Fehler beim Speichern. Versuche es erneut.";
+            }
+        }
+    </script>
+
+</body>
+</html>
