@@ -1,12 +1,28 @@
 const fetch = require("node-fetch");
 
 exports.handler = async function (event) {
+    if (event.httpMethod === "OPTIONS") {
+        return {
+            statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "POST, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type, api-key",
+            },
+            body: JSON.stringify({ message: "CORS OK" }),
+        };
+    }
+
     if (event.httpMethod !== "POST") {
         return {
             statusCode: 405,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            },
             body: JSON.stringify({ error: "Method Not Allowed" }),
         };
     }
+
 
     const { email } = JSON.parse(event.body);
 
