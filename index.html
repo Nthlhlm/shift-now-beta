@@ -71,7 +71,7 @@
                 listIds: [1] // Falls notwendig, passe diese ID an!
             };
 
-            let response = await fetch("https://api.brevo.com/v3/contacts", {
+            let response = await fetch("/.netlify/functions/brevo-submit", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
