@@ -82,10 +82,15 @@
             });
 
             if (response.ok) {
-                document.getElementById("confirmation").innerText = "Danke! Deine Einladung zur Beta wurde gesichert.";
-            } else {
-                document.getElementById("confirmation").innerText = "Fehler beim Speichern. Versuche es erneut.";
-            }
+    document.getElementById("confirmation").innerText = "Danke! Deine Einladung zur Beta wurde gesichert.";
+    
+    // Weiterleitung nach 3 Sekunden
+    setTimeout(() => {
+        window.location.href = "https://deine-seite.de/danke.html"; // Ersetze mit deiner echten URL!
+    }, 3000);
+} else {
+    document.getElementById("confirmation").innerText = "Fehler beim Speichern. Versuche es erneut.";
+}
         }
     </script>
 
