@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIFT NOW - Deine Transformation beginnt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2D2D2D;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #FFAA00;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            background-color: #FFAA00;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #FF8800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Willkommen bei SHIFT NOW</h1>
+        <p>Du hast dich erfolgreich angemeldet! Jetzt beginnt deine Reise zur Klarheit und Energie.</p>
+        <p>Klicke auf den Button, um deinen individuellen Energie-Check zu starten.</p>
+        <button onclick="startJourney()">Starte deine Transformation</button>
+    </div>
+
+    <script>
+        function startJourney() {
+            window.location.href = "journey.html";
+        }
+    </script>
+</body>
+</html>
