@@ -87,11 +87,13 @@
     // Weiterleitung nach 3 Sekunden
     setTimeout(() => {
         window.location.href = "https://neon-paprenjak-680a82.netlify.app/danke.html";
-    }, 3000);
+       }, 3000);
 } else {
     document.getElementById("confirmation").innerText = "Fehler beim Speichern. Versuche es erneut.";
 }
-    </script>
+}
+</script> <!-- HIER FEHLTE DIE SCHLIEßENDE KLAMMER! -->
 
 </body>
 </html>
+
